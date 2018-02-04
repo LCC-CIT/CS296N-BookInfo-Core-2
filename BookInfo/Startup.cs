@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using BookInfo.Repositories;
 using Microsoft.Extensions.Configuration;
-using BookInfo.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookInfo
 {
@@ -24,11 +16,6 @@ namespace BookInfo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<ApplicationDbContext>(
-                options => options.UseSqlServer(
-                    Configuration["Data:BookInfo:ConnectionString"]));
-            services.AddTransient<IAuthorRepository, AuthorRepository>();
-            services.AddTransient<IBookRepository, BookRepository>();
        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +28,6 @@ namespace BookInfo
                 app.UseDeveloperExceptionPage();
             }
             app.UseMvcWithDefaultRoute();
-            SeedData.PopulateDb(app);
         }
     }
 }

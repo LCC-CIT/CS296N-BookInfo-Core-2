@@ -1,43 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using BookInfo.Repositories;
+﻿using Microsoft.AspNetCore.Mvc;
 using BookInfo.Models;
-
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using System.Collections.Generic;
+using System;
 
 namespace BookInfo.Controllers
 {
     public class BookController : Controller
     {
-        private IBookRepository bookRepo;
+        // Temporary code: The constructor creates a list of books just for testing
+        // Later we'll see a better way to do this!
+        List<Book> books = new List<Book>();
 
-        public BookController(IBookRepository repo)
+        public BookController()
         {
-            bookRepo = repo;
+            Book book = new Book { Title = "Lord of the Rings", Date = DateTime.Parse("1/1/1937") }; // month/day/year
+            book.Authors.Add(new Author { Name = "J. R. R. Tolkien" });
+            books.Add(book);
+
+            book = new Book { Title = "The Lion, the Witch, and the Wardrobe", Date = DateTime.Parse("1/1/1950") };
+            book.Authors.Add(new Author { Name = "C. S. Lewis" });
+            books.Add(book);
+
+            book = new Book { Title = "Prince of Foxes", Date = DateTime.Parse("1/1/1947") };
+            book.Authors.Add(new Author { Name = "Samuel Shellabarger" });
+            books.Add(book);
         }
 
         // GET: /<controller>/
         public ViewResult Index()
         {
-            return View(bookRepo.GetAllBooks());
+            return View(books);
         }
 
-        public ViewResult AuthorsOfBook(Book book)
-        {
-            return View(bookRepo.GetAuthorsByBook(book));
-        }
-
-        public ViewResult BooksByAuthor(Author author)
-        {
-            return View(bookRepo.GetBooksByAuthor(author));
-        }
-
-        public ViewResult BookByTitle(string title)
-        {
-            return View(bookRepo.GetBookByTitle(title));
-        }
     }
 }
