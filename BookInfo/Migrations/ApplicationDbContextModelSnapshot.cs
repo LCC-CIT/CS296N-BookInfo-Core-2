@@ -43,6 +43,8 @@ namespace BookInfo.Migrations
                     b.Property<int>("BookID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("AuthorID");
+
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Title");

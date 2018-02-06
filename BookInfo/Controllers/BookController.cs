@@ -1,28 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookInfo.Repositories;
 using BookInfo.Models;
-
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace BookInfo.Controllers
 {
     public class BookController : Controller
     {
         private IBookRepository bookRepo;
+        private IAuthorRepository authRepo;
 
-        public BookController(IBookRepository repo)
+        public BookController(IBookRepository bookRepo, IAuthorRepository authRepo)
         {
-            bookRepo = repo;
+            this.bookRepo = bookRepo;
+            this.authRepo = authRepo;
         }
 
         // GET: /<controller>/
         public ViewResult Index()
         {
-            return View(bookRepo.GetAllBooks());
+            var books = bookRepo.GetAllBooks();
+            return View(books);
         }
 
         public ViewResult AuthorsOfBook(Book book)
@@ -39,5 +37,6 @@ namespace BookInfo.Controllers
         {
             return View(bookRepo.GetBookByTitle(title));
         }
+
     }
 }

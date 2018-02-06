@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BookInfo.Models
 {
@@ -10,7 +8,8 @@ namespace BookInfo.Models
         private List<Author> authors = new List<Author>();
 
         public List<Author> Authors { get { return authors; } }
-        public int BookID { get; set; }
+        public int BookID { get; set; }     // PK
+        public int AuthorID { get; set; }   // FK
         public string Title { get; set; }
         public DateTime Date { get; set; }
     }

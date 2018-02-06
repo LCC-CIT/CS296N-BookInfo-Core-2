@@ -1,12 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>Book Info</title>
-</head>
-<body>
-    <h1>Book Information</h1>
-    <br />
-    @Html.ActionLink("Show all books", "Index", "Book")<br />
-    @Html.ActionLink("Show all authors", "Authors", "Home") @*Later, this should be in an AuthorController *@
-</body>
-</html>
+﻿@{
+    ViewData["Title"] = "HomePage";
+}
+   
+   <a asp-controller="Book" asp-action="Index">Show all books</a><br />
+   <a asp-action="Authors">Show all authors</a> 
+    @*TODL: this should be in an AuthorController *@

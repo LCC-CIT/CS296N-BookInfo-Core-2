@@ -47,5 +47,10 @@ namespace BookInfo.Tests
         {
             return book.Authors;
         }
+
+        public int AddBook(Book book)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,23 +1,16 @@
 ﻿@model List<BookInfo.Models.Book>
+@{
+    ViewData["Title"] = "Book List";
+}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>Book List</title>
-</head>
-<body>
-    <h1>List of Books</h1>
-    @foreach (var b in Model)
+@foreach (var b in Model)
+{
+    @:Title: @b.Title <br />
+    @:Published: @b.Date.ToString("yyyy") <br />
+    foreach (var a in b.Authors)
     {
-        @:Title: @b.Title <br />
-        @:Published: @b.Date.ToString("yyyy") <br />
-        foreach (var a in b.Authors)
-        {
-            @:Author: @a.Name <br />
-        }
-        <br />
+        @:Author: @a.Name <br />
     }
-</body>
+    <br />
+}
 
-</html>

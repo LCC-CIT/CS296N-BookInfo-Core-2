@@ -12,5 +12,6 @@ namespace BookInfo.Repositories
         Book GetBookByTitle(string title);
         List<Book> GetBooksByAuthor(Author author);
         List<Author> GetAuthorsByBook(Book book);
+        int AddBook(Book book);
     }
 }

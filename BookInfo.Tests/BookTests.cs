@@ -17,7 +17,7 @@ namespace BookInfo.Tests
             // do the arrange step once for all tests
             repository = new FakeBookRepository();
             booksFromRepo = repository.GetAllBooks();
-            controller = new BookController(repository);
+            controller = new BookController(repository, null);
         }
 
         [Fact]

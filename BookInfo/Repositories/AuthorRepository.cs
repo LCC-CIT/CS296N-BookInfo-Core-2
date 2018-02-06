@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BookInfo.Models;
 
 namespace BookInfo.Repositories
 {
     public class AuthorRepository : IAuthorRepository
     {
+        private ApplicationDbContext context;
+
+        public AuthorRepository(ApplicationDbContext ctx)
+        {
+            context = ctx;
+        }
+
         public List<Author> GetAllAuthors()
         {
-            // Temporary development implementation
-            var authors = new List<Author>();
-            authors.Add(new Author() { Name = "Jame Austen", Birthday = new DateTime(1775, 12, 16) });
-            authors.Add(new Author() { Name = "William Shakespere", Birthday = new DateTime(1564,4, 1) });
+            List<Author> authors = context.Authors.ToList<Author>();
             return authors;
         }
 
