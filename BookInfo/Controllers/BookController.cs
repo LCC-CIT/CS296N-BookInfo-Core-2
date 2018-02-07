@@ -38,5 +38,30 @@ namespace BookInfo.Controllers
             return View(bookRepo.GetBookByTitle(title));
         }
 
+        public RedirectToActionResult AddBook()
+        {
+            Author author1 = new Author
+            {
+                Name = "Joe Test",
+                Birthday = DateTime.Parse("6/1/1950")
+            };
+            Author author2 = new Author
+            {
+                Name = "Jane Test",
+                Birthday = DateTime.Parse("9/1/1960")
+            };
+            Book book = new Book
+            {
+                Title = "Test Title",
+                Date = DateTime.Parse("12/1/2000")
+            };
+            book.Authors.Add(author1);
+            book.Authors.Add(author2);
+
+            bookRepo.AddBook(book);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

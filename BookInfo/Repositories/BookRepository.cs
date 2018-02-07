@@ -39,7 +39,19 @@ namespace BookInfo.Repositories
 
         public int AddBook(Book book)
         {
-            context.Books.Add(book);
+            // Add the book to the database
+            context.Books.Update(book);
+            // Save the book so that it gets an ID (primary key value)
+            context.SaveChanges();
+
+            // Give each author object a FK for the book
+            // and add it to the database
+            foreach (Author a in book.Authors)
+            {
+                a.BookID = book.BookID;
+                context.Authors.Update(a);
+            }
+            
             return context.SaveChanges();
         }
 

@@ -9,7 +9,6 @@ namespace BookInfo.Models
 
         public List<Author> Authors { get { return authors; } }
         public int BookID { get; set; }     // PK
-        public int AuthorID { get; set; }   // FK
         public string Title { get; set; }
         public DateTime Date { get; set; }
     }

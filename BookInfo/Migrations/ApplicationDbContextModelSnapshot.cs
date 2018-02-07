@@ -27,7 +27,7 @@ namespace BookInfo.Migrations
 
                     b.Property<DateTime>("Birthday");
 
-                    b.Property<int?>("BookID");
+                    b.Property<int>("BookID");
 
                     b.Property<string>("Name");
 
@@ -43,8 +43,6 @@ namespace BookInfo.Migrations
                     b.Property<int>("BookID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AuthorID");
-
                     b.Property<DateTime>("Date");
 
                     b.Property<string>("Title");
@@ -58,7 +56,8 @@ namespace BookInfo.Migrations
                 {
                     b.HasOne("BookInfo.Models.Book")
                         .WithMany("Authors")
-                        .HasForeignKey("BookID");
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
