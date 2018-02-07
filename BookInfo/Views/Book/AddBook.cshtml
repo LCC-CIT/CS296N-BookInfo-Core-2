@@ -1,0 +1,31 @@
+﻿@{ 
+    ViewData["Title"] = "Add Book";
+}
+
+<div>
+    <form method="post">
+        <div>
+            <label for="title">Title</label>
+            <input name="title" />
+        </div>
+        <div>
+            <label for="date">Publication Date</label>
+            <input name="date" />
+        </div>
+        <div>
+            <label for="author1">First author</label>
+            <input name="author1" />
+        </div>
+        <div>
+            <label for="author2">Second author</label>
+            <input name="author2" />
+        </div>
+        <div>
+            <input type="submit" value="Enter" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
