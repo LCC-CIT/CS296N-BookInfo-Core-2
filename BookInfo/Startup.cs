@@ -41,7 +41,6 @@ namespace BookInfo
                 app.UseDeveloperExceptionPage();
             }
             app.UseMvcWithDefaultRoute();
-            SeedData.PopulateDb(app);
         }
     }
 }

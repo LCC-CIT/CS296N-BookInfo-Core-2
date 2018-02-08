@@ -17,7 +17,7 @@ namespace BookInfo.Repositories
 
         public List<Book> GetAllBooks()
         {
-            return context.Books.Include(b => b.Authors).ToList<Book>();
+            return context.Books.Include(b => b.Authors).ToList();
         }
 
         public Book GetBookByTitle(string title)
