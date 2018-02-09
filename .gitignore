@@ -65,8 +65,7 @@ _ReSharper*/
 #Test files
 *.testsettings
 # Windows image file caches
-Thumbs.db
-ehthumbs.db
+*.db
 
 # Folder config file
 Desktop.ini
@@ -111,16 +110,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-<<<<<<< HEAD
-*.dg
-.vs/restore.dg
-*.dg
-*.dg
-=======
 *.suo
 .vs/restore.dg
 *.dg
 .vs/restore.dg
 *.user
->>>>>>> AddingEFCore
 .vs/restore.dg
