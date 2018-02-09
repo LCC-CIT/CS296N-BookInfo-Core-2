@@ -44,7 +44,7 @@ namespace BookInfo
 
 /* Main contains new code based on:
  * https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/#move-database-initialization-code
- * As of 2.0, it's bad practice to do anything in 
+ * As of ASP.NET Core 2.0, it's bad practice to do anything in 
  * BuildWebHost except build and configure the web host. 
  * Anything that's about running the application 
  * should be handled outside of BuildWebHost 
