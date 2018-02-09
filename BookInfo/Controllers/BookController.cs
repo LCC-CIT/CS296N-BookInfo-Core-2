@@ -8,12 +8,10 @@ namespace BookInfo.Controllers
     public class BookController : Controller
     {
         private IBookRepository bookRepo;
-        private IAuthorRepository authRepo;
 
-        public BookController(IBookRepository bookRepo, IAuthorRepository authRepo)
+        public BookController(IBookRepository bookRepo)
         {
             this.bookRepo = bookRepo;
-            this.authRepo = authRepo;
         }
 
         // GET: /<controller>/

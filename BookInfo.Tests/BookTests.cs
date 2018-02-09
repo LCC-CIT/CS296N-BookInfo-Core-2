@@ -7,7 +7,6 @@ namespace BookInfo.Tests
 {
     public class BookTests
     {
-        FakeBookRepository repository;
         BookController controller;
         List<Book> booksFromRepo;
 
@@ -15,9 +14,9 @@ namespace BookInfo.Tests
         {
             // There is no state stored in the controller, so we can
             // do the arrange step once for all tests
-            repository = new FakeBookRepository();
+            var repository = new FakeBookRepository();
             booksFromRepo = repository.GetAllBooks();
-            controller = new BookController(repository, null);
+            controller = new BookController(repository);
         }
 
         [Fact]
