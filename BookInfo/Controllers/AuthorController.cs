@@ -22,6 +22,23 @@ namespace BookInfo.Controllers
             var authors = authorRepo.GetAllAuthors();
             return View(authors);
         }
+        
+        [HttpGet]
+        public ViewResult Add()
+        {
+            // Just send an empty Author object so that the form input values won't be null
+            return View("AuthorEntry", new Author());
+        }
+
+        [HttpPost]
+        public IActionResult Add(string name, DateTime date)
+        {
+            Author author = new Author { Name = name, Birthday = date };
+
+            authorRepo.Add(author);
+
+            return RedirectToAction("Index");
+        }
 
         [HttpGet]
         public ViewResult Edit (int id)
@@ -30,7 +47,7 @@ namespace BookInfo.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Edit(String name, DateTime date, int authorid, int bookid)
+        public IActionResult Edit(String name, DateTime date, int authorid, int bookid)
         {
             Author author = new Author { Name = name, Birthday = date, 
                 AuthorID = authorid, BookID = bookid }; 

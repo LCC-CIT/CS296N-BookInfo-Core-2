@@ -7,7 +7,7 @@ namespace BookInfo.Controllers
 {
     public class BookController : Controller
     {
-        private IBookRepository bookRepo;
+        private readonly IBookRepository bookRepo;
 
         public BookController(IBookRepository bookRepo)
         {
@@ -43,7 +43,7 @@ namespace BookInfo.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult AddBook(String title, String date, String author1, String author2)
+        public IActionResult AddBook(string title, string date, string author1, string author2)
         {
             Book book = new Book { Title = title, Date = DateTime.Parse(date) };
             if (author1 != null)

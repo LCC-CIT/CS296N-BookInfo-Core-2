@@ -35,6 +35,12 @@ namespace BookInfo.Repositories
             throw new NotImplementedException();
         }
 
+        public int Add(Author author)
+        {
+            context.Authors.Add(author);
+            return context.SaveChanges();
+        }
+
         public int Edit(Author author)
         {
             var authorFromDb = GetAuthorById(author.AuthorID);
