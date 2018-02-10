@@ -46,8 +46,14 @@ namespace BookInfo.Controllers
         public RedirectToActionResult AddBook(String title, String date, String author1, String author2)
         {
             Book book = new Book { Title = title, Date = DateTime.Parse(date) };
-            book.Authors.Add(new Author { Name = author1 });
-            book.Authors.Add(new Author { Name = author2 });
+            if (author1 != null)
+            {
+                book.Authors.Add(new Author { Name = author1 });
+            }
+            if (author2 != null)
+            {
+                book.Authors.Add(new Author { Name = author2 });
+            }
 
             bookRepo.AddBook(book);
 
