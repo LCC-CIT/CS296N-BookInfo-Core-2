@@ -1,0 +1,47 @@
+﻿@using BookInfo.Models
+@model BookInfo.Models.Book
+
+@{ 
+    ViewData["Title"] = "Add Book";
+}
+
+<div>
+    <form method="post">
+        <div>
+            <label for="title">Title</label><br />
+            <input asp-for="@Model.Title"/>
+        </div>
+        <div>
+            <label for="date">Publication Date</label><br />
+            <input asp-for="@Model.Date" />
+        </div>
+        <input type="hidden" asp-for="@Model.BookID" />
+
+        
+        @foreach (Author a in Model.Authors)
+        {
+            @:Author: @a.Name
+        }
+        
+        <p>
+            <input type="submit" value="Enter" />
+        </p>
+    </form>
+    <br/>
+    <form method="post" asp-controller="Author" asp-action="Add">
+        <div>
+            <label>Name</label><br/>
+            <input name="name" />
+            <label>Birth date</label><br/>
+            <input name="date" />
+            <input type="hidden" name="bookid" value="@Model.BookID"/>
+        </div>
+        <div>
+            <input type="submit" value="Add Author" />
+        </div>
+    </form>
+</div>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

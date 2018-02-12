@@ -22,6 +22,21 @@ namespace BookInfo.Tests
             throw new NotImplementedException();
         }
 
+        public Author GetAuthorById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Edit(Author author)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Author> GetAuthorsByBook(Book book)
         {
             throw new NotImplementedException();

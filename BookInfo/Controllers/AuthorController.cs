@@ -17,10 +17,21 @@ namespace BookInfo.Controllers
             authorRepo = repo;
         }
 
+        /* Action methods */
+        
         public ViewResult Index()
         {
             var authors = authorRepo.GetAllAuthors();
             return View(authors);
+        }
+        
+        
+        
+        [HttpPost]
+        public RedirectToActionResult Add(string name, DateTime date, int bookId)
+        {
+            authorRepo.Add(new Author {Name = name, Birthday = date, BookID = bookId});
+            return RedirectToAction("Index", "Book");
         }
 
         [HttpGet]

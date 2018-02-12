@@ -6,14 +6,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookInfo.Repositories
 {
+    // The repository object will be injected into a Controller by a transient service (configured in Startup)
     public class BookRepository : IBookRepository
     {
-        private ApplicationDbContext context;
+        private readonly ApplicationDbContext context;
  
         public BookRepository(ApplicationDbContext ctx)
         {
             context = ctx;
         }
+        
+        /* Interface method implementations */
 
         public List<Book> GetAllBooks()
         {
@@ -23,6 +26,11 @@ namespace BookInfo.Repositories
         public Book GetBookByTitle(string title)
         {
             return context.Books.Include(b => b.Authors).First(b => b.Title == title);
+        }
+
+        public Book GetBookById(int id)
+        {
+            return context.Books.Include("Authors").First(b => b.BookID == id);
         }
 
         public List<Book> GetBooksByAuthor(Author author)
@@ -52,6 +60,19 @@ namespace BookInfo.Repositories
                 context.Authors.Update(a);
             }
             
+            return context.SaveChanges();
+        }
+        
+        public int Edit(Book book)
+        {
+            context.Books.Update(book);
+            return context.SaveChanges();
+        }
+
+        public int Delete(int id)
+        {
+            var bookFromDb = context.Books.First(a => a.BookID == id);
+            context.Remove(bookFromDb);
             return context.SaveChanges();
         }
 
