@@ -18,21 +18,23 @@ namespace BookInfo.Tests
         {
             // Arrange
             FakeAuhtorRepository repository = new FakeAuhtorRepository();
-            HomeController controller = new HomeController(repository);
+            AuthorController controller = new AuthorController(repository);
 
             // Act
-            List<Author> authors = controller.Authors().ViewData.Model as List<Author>;
+            List<Author> authors = controller.Index().ViewData.Model as List<Author>;
 
             // Assert
-            Assert.Equal(repository.GetAllAuthors()[0].Name,
-                authors[0].Name);
-            Assert.Equal(repository.GetAllAuthors()[0].Birthday,
-                authors[0].Birthday);
-            Assert.Equal(repository.GetAllAuthors()[1].Name,
-                authors[1].Name);
-            Assert.Equal(repository.GetAllAuthors()[1].Birthday,
-                authors[1].Birthday);
-
+            if (authors != null)
+            {
+                Assert.Equal(repository.GetAllAuthors()[0].Name,
+                    authors[0].Name);
+                Assert.Equal(repository.GetAllAuthors()[0].Birthday,
+                    authors[0].Birthday);
+                Assert.Equal(repository.GetAllAuthors()[1].Name,
+                    authors[1].Name);
+                Assert.Equal(repository.GetAllAuthors()[1].Birthday,
+                    authors[1].Birthday);
+            }
         }
     }
 

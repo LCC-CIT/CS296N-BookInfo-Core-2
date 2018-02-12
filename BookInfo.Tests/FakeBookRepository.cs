@@ -36,6 +36,11 @@ namespace BookInfo.Tests
             return books.First(b => b.Title == title);
         }
 
+        public Book GetBookById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Book> GetBooksByAuthor(Author author)
         {
             return (from b in books
@@ -49,6 +54,16 @@ namespace BookInfo.Tests
         }
 
         public int AddBook(Book book)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Edit(Book book)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete(int id)
         {
             throw new NotImplementedException();
         }

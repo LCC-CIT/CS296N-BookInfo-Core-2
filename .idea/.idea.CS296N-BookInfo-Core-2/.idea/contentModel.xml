@@ -10,8 +10,10 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="BookInfo.csproj" t="IncludeRecursive" />
+        <e p="bookinfo2.db" t="Include" />
         <e p="bower.json" t="Include" />
         <e p="Controllers" t="Include">
+          <e p="AuthorController.cs" t="Include" />
           <e p="BookController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
         </e>
@@ -47,12 +49,16 @@
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Author" t="Include">
+            <e p="AuthorEntry.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
           <e p="Book" t="Include">
-            <e p="AddBook.cshtml" t="Include" />
+            <e p="Add.cshtml" t="Include" />
+            <e p="Edit.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
-            <e p="Authors.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
