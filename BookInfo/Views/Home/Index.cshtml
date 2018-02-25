@@ -1,9 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
 <img src="~/images/books-in-a-row.png" height="150px"><br>
 
-<!-- Navigation links -->
+<nav class="navbar navbar-expand-sm bg-light">
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" asp-controller="Book" asp-action="Index">Show all books</a>
@@ -15,3 +16,4 @@
       <a class="nav-link" asp-controller="Author" asp-action="Index">Show all authors</a>
     </li>
   </ul>
+  </nav>

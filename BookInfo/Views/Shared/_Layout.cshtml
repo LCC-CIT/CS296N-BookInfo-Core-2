@@ -6,13 +6,15 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
-    <h1>@ViewData["Title"] - Book Info</h1>
-    @RenderBody()
-    @if (((string)ViewData["Title"]) != "Home Page")
-    {
-        <p>
-        <a asp-controller="Home" asp-action="Index">Back to Home</a>
-        </p>
-    }
+    <div class="container">
+        <h1>@ViewData["Title"] - Book Info</h1>
+        @RenderBody()
+        @if (((string)ViewData["Title"]) != "Home Page")
+        {
+            <p>
+            <a asp-controller="Home" asp-action="Index">Back to Home</a>
+            </p>
+        }
+    </div>
 </body>
 </html>
