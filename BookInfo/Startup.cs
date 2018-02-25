@@ -47,6 +47,7 @@ namespace BookInfo
                 app.UseDeveloperExceptionPage();
             }
             app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
         }
     }
 }

@@ -37,7 +37,9 @@ namespace BookInfo.Tests
                     books[i].Authors);
             }
         }
-
+        /*
+         * Currently not implemented
+         * 
         [Fact]
         public void DoesGetBookByTitle()
         {
@@ -60,5 +62,6 @@ namespace BookInfo.Tests
             var authorsFromRepo = booksFromRepo[1].Authors;
             Assert.Equal(authorsFromRepo, authors);
         }
+        */
     }
 }

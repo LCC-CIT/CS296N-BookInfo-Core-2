@@ -1,10 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<p>
-    <a asp-controller="Book" asp-action="Index">Show all books</a><br />
-    <a asp-controller="Book" asp-action="Add">Add a book</a>
-</p>
-<p>
-   <a asp-controller="Author" asp-action="Index">Show all authors</a> 
-</p>
+<img src="~/images/books-in-a-row.png" height="150px"><br>
+
+<!-- Navigation links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" asp-controller="Book" asp-action="Index">Show all books</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" asp-controller="Book" asp-action="Add">Add a book</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" asp-controller="Author" asp-action="Index">Show all authors</a>
+    </li>
+  </ul>
