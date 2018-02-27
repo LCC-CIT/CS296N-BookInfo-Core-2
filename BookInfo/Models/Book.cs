@@ -8,7 +8,10 @@ namespace BookInfo.Models
     {
         private List<Author> authors = new List<Author>();
         public List<Author> Authors { get { return authors; } }
-        
+
+        private List<Review> reviews = new List<Review>();
+        public List<Review> Reviews { get { return reviews; } }
+
         public int BookID { get; set; }     // PK
         
         public string Title { get; set; }
