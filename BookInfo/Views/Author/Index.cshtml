@@ -8,8 +8,8 @@
     @:<p>
         @:Name: @a.Name <br />
         @:Birthday: @a.Birthday.ToString("MMMM dd, yyyy") <br />
-        <a asp-action="Edit" asp-route-id="@a.AuthorID" >Edit</a>
-        <a asp-action="Delete" asp-route-id="@a.AuthorID">Delete</a>
+        <a asp-action="Edit" asp-route-id="@a.AuthorID" class="btn btn-primary">Edit</a>
+        <a asp-action="Delete" asp-route-id="@a.AuthorID" class="btn btn-danger">Delete</a>
     @:</p>
 }
 

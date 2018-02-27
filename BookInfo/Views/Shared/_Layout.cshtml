@@ -3,13 +3,23 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <title>@ViewData["Title"]</title>
+        @if (((string)ViewData["Title"]) != "Home")
+        {
+            <title>@ViewData["Title"]</title>
+        }
+        else
+        {
+            <title>Book Info</title>
+        }
 </head>
 <body>
     <div class="container">
-        <h1>@ViewData["Title"] - Book Info</h1>
+        <div class="text-center">
+            <h1 class="text-center bg-light">Book Info</h1>
+            <h1 class="badge badge-secondary">@ViewData["Title"]</h1>
+        </div>
         @RenderBody()
-        @if (((string)ViewData["Title"]) != "Home Page")
+        @if (((string)ViewData["Title"]) != "Home")
         {
             <p>
             <a asp-controller="Home" asp-action="Index">Back to Home</a>
