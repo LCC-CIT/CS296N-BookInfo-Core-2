@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using Microsoft.Extensions.Configuration;
 using BookInfo.Repositories;
 using BookInfo.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookInfo
 {
@@ -35,7 +36,11 @@ namespace BookInfo
 
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookRepository, BookRepository>();
-       }
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -48,6 +53,7 @@ namespace BookInfo
             }
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
+            app.UseAuthentication();
         }
     }
 }
