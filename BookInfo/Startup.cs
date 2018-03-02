@@ -22,6 +22,7 @@ namespace BookInfo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 services.AddDbContext<ApplicationDbContext>(
