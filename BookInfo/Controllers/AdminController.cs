@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookInfo.Controllers
 {
-    public class AuthController : Controller
+    public class AdminController : Controller
     {
         private UserManager<User> userManager;
 
-        public AuthController(UserManager<User> um)
+        public AdminController(UserManager<User> um)
         {
             userManager = um;
         }
