@@ -7,12 +7,14 @@ using System.Runtime.InteropServices;
 using Microsoft.Extensions.Configuration;
 using BookInfo.Repositories;
 using BookInfo.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookInfo
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration) => Configuration = configuration;
+        public Startup(IConfiguration configuration) 
+            => Configuration = configuration;
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -20,6 +22,7 @@ namespace BookInfo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 services.AddDbContext<ApplicationDbContext>(
@@ -35,7 +38,11 @@ namespace BookInfo
 
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookRepository, BookRepository>();
-       }
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -47,6 +54,8 @@ namespace BookInfo
                 app.UseDeveloperExceptionPage();
             }
             app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
+            app.UseAuthentication();
         }
     }
 }

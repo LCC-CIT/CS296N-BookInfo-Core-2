@@ -2,17 +2,29 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        @if (((string)ViewData["Title"]) != "Home")
+        {
+            <title>@ViewData["Title"]</title>
+        }
+        else
+        {
+            <title>Book Info</title>
+        }
 </head>
 <body>
-    <h1>@ViewData["Title"] - Book Info</h1>
-    @RenderBody()
-    @if (((string)ViewData["Title"]) != "Home Page")
-    {
-        <p>
-        <a asp-controller="Home" asp-action="Index">Back to Home</a>
-        </p>
-    }
+    <div class="container">
+        <div class="text-center">
+            <h1 class="text-center bg-light">Book Info</h1>
+            <h1 class="badge badge-secondary">@ViewData["Title"]</h1>
+        </div>
+        @RenderBody()
+        @if (((string)ViewData["Title"]) != "Home")
+        {
+            <p>
+            <a asp-controller="Home" asp-action="Index">Back to Home</a>
+            </p>
+        }
+    </div>
 </body>
 </html>

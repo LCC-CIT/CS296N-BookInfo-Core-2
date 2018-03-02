@@ -41,5 +41,10 @@ namespace BookInfo.Tests
         {
             throw new NotImplementedException();
         }
+
+        public int Add(Author author)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -2,7 +2,7 @@
 @model BookInfo.Models.Book
 
 @{ 
-    ViewData["Title"] = "Add Book";
+    ViewData["Title"] = "Edit Book";
 }
 
 <div>
@@ -24,24 +24,25 @@
         }
         
         <p>
-            <input type="submit" value="Enter" />
+            <input type="submit" value="Enter" class="btn btn-success" />
         </p>
     </form>
     <br/>
     <form method="post" asp-controller="Author" asp-action="Add">
         <div>
             <label>Name</label><br/>
-            <input name="name" />
+            <input name="name" /><br/>
             <label>Birth date</label><br/>
             <input name="date" />
             <input type="hidden" name="bookid" value="@Model.BookID"/>
         </div>
         <div>
-            <input type="submit" value="Add Author" />
+            <input type="submit" value="Add Author" class="btn btn-secondary" />
+
         </div>
     </form>
 </div>
-
+<br/>
 <p>
     <a asp-action="Index">Back to List</a>
 </p>
