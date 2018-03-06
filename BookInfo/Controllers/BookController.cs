@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BookInfo.Repositories;
 using BookInfo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookInfo.Controllers
 {
@@ -43,6 +44,7 @@ namespace BookInfo.Controllers
         /* Action methods that modify the database */
 
         [HttpGet]
+        [Authorize]
         public ViewResult Add()
         {
             return View();
