@@ -8,11 +8,11 @@
 <div>
     <form method="post">
         <div>
-            <label for="title">Title</label><br />
+            <label asp-for="title">Title</label><br />
             <input asp-for="@Model.Title"/>
         </div>
         <div>
-            <label for="date">Publication Date</label><br />
+            <label asp-for="date">Publication Date</label><br />
             <input asp-for="@Model.Date" />
         </div>
         <input type="hidden" asp-for="@Model.BookID" />
