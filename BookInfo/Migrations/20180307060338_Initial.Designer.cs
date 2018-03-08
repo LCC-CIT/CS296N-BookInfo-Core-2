@@ -12,15 +12,14 @@ using System;
 namespace BookInfo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180301191055_Identity")]
-    partial class Identity
+    [Migration("20180307060338_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
             modelBuilder.Entity("BookInfo.Models.Author", b =>
                 {
@@ -92,8 +91,7 @@ namespace BookInfo.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -165,8 +163,7 @@ namespace BookInfo.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
 
@@ -245,8 +242,6 @@ namespace BookInfo.Migrations
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
-
-                    b.Property<int>("UserID");
 
                     b.ToTable("User");
 
