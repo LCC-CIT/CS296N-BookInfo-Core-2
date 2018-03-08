@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookInfo.Models;
 using BookInfo.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookInfo.Controllers
@@ -28,6 +29,7 @@ namespace BookInfo.Controllers
         
         
         [HttpPost]
+        [Authorize]
         public RedirectToActionResult Add(string name, DateTime date, int bookId)
         {
             authorRepo.Add(new Author {Name = name, Birthday = date, BookID = bookId});

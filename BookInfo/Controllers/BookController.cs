@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BookInfo.Repositories;
 using BookInfo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookInfo.Controllers
 {
@@ -16,7 +17,8 @@ namespace BookInfo.Controllers
         }
 
         /* Action Methods that get info from the database */
-        
+
+        [Authorize]
         public ViewResult Index()
         {
             var books = bookRepo.GetAllBooks();
@@ -42,7 +44,8 @@ namespace BookInfo.Controllers
         
         /* Action methods that modify the database */
 
-        [HttpGet]
+   
+        [Authorize]
         public ViewResult Add()
         {
             return View();
@@ -56,7 +59,6 @@ namespace BookInfo.Controllers
             {
                 book.Authors.Add(new Author { Name = author, Birthday = DateTime.Parse(birthdate)});
             }
-
 
             bookRepo.AddBook(book);
 
