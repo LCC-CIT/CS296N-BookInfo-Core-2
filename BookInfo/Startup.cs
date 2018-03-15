@@ -77,6 +77,7 @@ namespace BookInfo
             app.UseAuthentication();   // Must precede app.UseMvc!!!
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
+            ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
         }
     }
 }

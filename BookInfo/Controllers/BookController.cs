@@ -45,7 +45,7 @@ namespace BookInfo.Controllers
         /* Action methods that modify the database */
 
    
-        [Authorize]
+        [Authorize(Roles ="member")]
         public ViewResult Add()
         {
             return View();

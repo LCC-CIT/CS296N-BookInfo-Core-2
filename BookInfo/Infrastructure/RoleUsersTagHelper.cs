@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using BookInfo.Models;
 
-namespace Users.Infrastructure
+namespace BookInfo.Infrastructure
 {
     [HtmlTargetElement("td", Attributes = "identity-role")]
     public class RoleUsersTagHelper : TagHelper
@@ -33,7 +33,7 @@ namespace Users.Infrastructure
                 foreach (var user in userManager.Users)
                 {
                     if (user != null
-                    && await userManager.IsInRoleAsync(user, role.Name))
+                        && await userManager.IsInRoleAsync(user, role.Name))
                     {
                         names.Add(user.UserName);
                     }

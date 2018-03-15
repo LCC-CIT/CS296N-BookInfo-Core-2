@@ -4,11 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using BookInfo.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookInfo.Controllers
 {
+    [Authorize(Roles="Admins")]
     public class AdminController : Controller
     {
         private UserManager<User> userManager;
