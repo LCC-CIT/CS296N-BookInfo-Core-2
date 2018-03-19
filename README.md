@@ -1,4 +1,17 @@
-This ASP.NET Core MVC web app demonstrates the use of a fake repository for unit testing a controller by means of Dependency Injection (DI).
+# BookInfo ASP.NET Core MVC Web App
+This web app was written to demonstrate key concepts in development of ASP.NET Core MVC 2.0 web apps
+Each of the following branches represents a development step:
+- Start
+
+- AddBook
+- AddAuthor
+- AddEF
+- Edit+Delete
+- FKAuthorID
+- AddBootstrap
+- AddIdentity
+- AddLogin
+- UserRoles
 
 Note: This app is just one app in the CS296nCourseMaterials repository.
 To get the source code for this app you will need to clone or download the entire repository.
