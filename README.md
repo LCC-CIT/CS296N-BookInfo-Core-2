@@ -2,7 +2,7 @@
 This web app was written to demonstrate key concepts in development of ASP.NET Core MVC 2.0 web apps using Visual Studio 2017.
 Each of the following branches represents a development step:
 
-1. StartCode: Copied from [a .NET Core 1.1 project](https://github.com/LCC-CIT/CS296N-BookInfo-Core), updated for VS 2017. Already had basic models, controlelrs, views, EF and a database.
+1. StartCode: Copied from [a .NET Core 1.1 project](https://github.com/LCC-CIT/CS296N-BookInfo-Core), updated for VS 2017. Already had basic models, controlelrs, views.
 1.  AddEF: Includes unit tests 
 1. FKAuthorID: Added AuthorID to the Book model as a foreign key
 2. AddBook: Added an input form for adding books
