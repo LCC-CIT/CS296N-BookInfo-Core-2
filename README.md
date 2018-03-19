@@ -1,6 +1,7 @@
 # BookInfo ASP.NET Core MVC Web App
+
 This web app was written to demonstrate key concepts in development of ASP.NET Core MVC 2.0 web apps using Visual Studio 2017.
-Each of the following branches represents a development step:
+
 ----
 
 Note: This app is just one app in the CS296nCourseMaterials repository.
