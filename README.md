@@ -1,7 +1,7 @@
 # BookInfo - Start Branch
 
 This branch was copied from the same branch in the CS296N-BookInfo-Core
-repo and updated for Visual Studio 2017 and .NET Core 2.0. and the database was renamed to BookInfo2.
+repo and updated for Visual Studio 2017 and .NET Core 2.0. There is no database and no unit tests.
 This project was originally created using Visual Studio 2015 with the ASP.NET Core Web Application, Empty, template and .NET Core 1.1. 
 Book and Author models, Home and Book controllers, and views were added.
 
