@@ -53,9 +53,10 @@ namespace BookInfo
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();     // This has to come before UseMvc...
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
-            app.UseAuthentication();
+
         }
     }
 }
