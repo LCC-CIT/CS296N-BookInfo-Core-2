@@ -46,7 +46,7 @@ namespace BookInfo.Repositories
             var authorFromDb = GetAuthorById(author.AuthorID);
             authorFromDb.Birthday = author.Birthday;
             authorFromDb.Name = author.Name;
-            authorFromDb.BookID = author.BookID;
+            // authorFromDb.BookID = author.BookID;
             return context.SaveChanges();
         }
 

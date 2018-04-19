@@ -54,12 +54,13 @@ namespace BookInfo.Repositories
 
             // Give each author object a FK for the book
             // and add it to the database
-            foreach (Author a in book.Authors)
+            /* foreach (Author a in book.Authors)
             {
                 a.BookID = book.BookID;
                 context.Authors.Update(a);
             }
-            
+            */
+
             return context.SaveChanges();
         }
         

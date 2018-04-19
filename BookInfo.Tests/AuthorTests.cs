@@ -17,8 +17,9 @@ namespace BookInfo.Tests
         public void DoesGetAuthors()
         {
             // Arrange
-            FakeAuhtorRepository repository = new FakeAuhtorRepository();
-            AuthorController controller = new AuthorController(repository);
+            FakeAuhtorRepository far = new FakeAuhtorRepository();
+            FakeBookRepository fbr = new FakeBookRepository();
+            AuthorController controller = new AuthorController(far, fbr);
 
             // Act
             List<Author> authors = controller.Index().ViewData.Model as List<Author>;
@@ -26,13 +27,13 @@ namespace BookInfo.Tests
             // Assert
             if (authors != null)
             {
-                Assert.Equal(repository.GetAllAuthors()[0].Name,
+                Assert.Equal(far.GetAllAuthors()[0].Name,
                     authors[0].Name);
-                Assert.Equal(repository.GetAllAuthors()[0].Birthday,
+                Assert.Equal(far.GetAllAuthors()[0].Birthday,
                     authors[0].Birthday);
-                Assert.Equal(repository.GetAllAuthors()[1].Name,
+                Assert.Equal(far.GetAllAuthors()[1].Name,
                     authors[1].Name);
-                Assert.Equal(repository.GetAllAuthors()[1].Birthday,
+                Assert.Equal(far.GetAllAuthors()[1].Birthday,
                     authors[1].Birthday);
             }
         }

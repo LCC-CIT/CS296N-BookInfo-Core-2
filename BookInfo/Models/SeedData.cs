@@ -16,7 +16,7 @@ namespace BookInfo
                 Book book = new Book { Title = "Lord of the Rings", Date = DateTime.Parse("1/1/1937") }; // month/day/year
                 context.Books.Add(book);    // add the book to the dB Context
                 context.SaveChanges();      // save it so it gets an ID (PK value)
-                Author author = new Author { Name = "J. R. R. Tolkien", BookID = book.BookID};
+                Author author = new Author { Name = "J. R. R. Tolkien"};
                 context.Authors.Add(author); 
                 book.Authors.Add(author);
 
@@ -24,14 +24,14 @@ namespace BookInfo
                 book = new Book { Title = "The Lion, the Witch, and the Wardrobe", Date = DateTime.Parse("1/1/1950") };
                 context.Books.Add(book);
                 context.SaveChanges();
-                author = new Author { Name = "C. S. Lewis", BookID = book.BookID };
+                author = new Author { Name = "C. S. Lewis" };
                 context.Authors.Add(author);
                 book.Authors.Add(author);
 
                 book = new Book { Title = "Prince of Foxes", Date = DateTime.Parse("1/1/1947") };
                 context.Books.Add(book);
                 context.SaveChanges();
-                author = new Author { Name = "Samuel Shellabarger", BookID = book.BookID };
+                author = new Author { Name = "Samuel Shellabarger" };
                 context.Authors.Add(author);
                 book.Authors.Add(author);
 

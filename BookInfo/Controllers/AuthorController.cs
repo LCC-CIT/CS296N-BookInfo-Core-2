@@ -12,10 +12,12 @@ namespace BookInfo.Controllers
     public class AuthorController : Controller
     {
         private IAuthorRepository authorRepo;
+        private IBookRepository bookRepo;
 
-        public AuthorController(IAuthorRepository repo)
+        public AuthorController(IAuthorRepository ap, IBookRepository bp)
         {
-            authorRepo = repo;
+            authorRepo = ap;
+            bookRepo = bp;
         }
 
         /* Action methods */
@@ -32,7 +34,11 @@ namespace BookInfo.Controllers
         [Authorize]
         public RedirectToActionResult Add(string name, DateTime date, int bookId)
         {
-            authorRepo.Add(new Author {Name = name, Birthday = date, BookID = bookId});
+            Book book = bookRepo.GetBookById(bookId);
+            Author author = new Author { Name = name, Birthday = date };
+            authorRepo.Add(author);
+            book.Authors.Add(author);
+            bookRepo.Edit(book);
             return RedirectToAction("Index", "Book");
         }
 
@@ -46,7 +52,10 @@ namespace BookInfo.Controllers
         public RedirectToActionResult Edit(String name, DateTime date, int authorid, int bookid)
         {
             Author author = new Author { Name = name, Birthday = date, 
-                AuthorID = authorid, BookID = bookid }; 
+                AuthorID = authorid};
+
+            Book book = bookRepo.GetBookById(bookid);
+            book.Authors.Add(author);  // TODO: Check to see if this author is already in the list!
 
             authorRepo.Edit(author);
             return RedirectToAction("Index");
