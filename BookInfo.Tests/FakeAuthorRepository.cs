@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookInfo.Tests
 {
-    public class FakeAuhtorRepository : IAuthorRepository
+    public class FakeAuthorRepository : IAuthorRepository
     {
         public List<Author> GetAllAuthors()
         {

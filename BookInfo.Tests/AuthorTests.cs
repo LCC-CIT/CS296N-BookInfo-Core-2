@@ -17,11 +17,11 @@ namespace BookInfo.Tests
         public void DoesGetAuthors()
         {
             // Arrange
-            FakeAuhtorRepository repository = new FakeAuhtorRepository();
-            AuthorController controller = new AuthorController(repository);
+            var repository = new FakeAuthorRepository();
+            var controller = new AuthorController(repository);
 
             // Act
-            List<Author> authors = controller.Index().ViewData.Model as List<Author>;
+            var authors = (List<Author>) controller.Index().ViewData.Model;
 
             // Assert
             if (authors != null)
