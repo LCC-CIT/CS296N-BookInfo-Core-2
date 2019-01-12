@@ -1,5 +1,5 @@
 # BookInfo ASP.NET Core MVC Web App
-This web app was written to demonstrate key concepts in development of ASP.NET Core MVC 2.0 web apps using Visual Studio 2017.
+This web app was written to demonstrate key concepts in development of ASP.NET Core MVC web apps. The current version targets .NET Core 2.2.
 Each of the following branches represents a development step:
 
 1. StartCode: Copied from [a .NET Core 1.1 project](https://github.com/LCC-CIT/CS296N-BookInfo-Core), updated for VS 2017. Already had basic models, controlelrs, views.
@@ -15,4 +15,4 @@ Each of the following branches represents a development step:
 
 ----
 
-This demo was written by [Brian Bird](https://birdsbits.blog) for CS296N, Web Development 2:ASP.NET, at Lane Community College.
+This demo was written by [Brian Bird](https://birdsbits.blog) for CS296N, Web Development 2: ASP.NET, at Lane Community College.
