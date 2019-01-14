@@ -14,11 +14,7 @@ namespace BookInfo.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-<<<<<<< HEAD
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
-=======
-                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
->>>>>>> AddLogin
 
             modelBuilder.Entity("BookInfo.Models.Author", b =>
                 {
@@ -242,11 +238,8 @@ namespace BookInfo.Migrations
 
                     b.Property<string>("LastName");
 
-<<<<<<< HEAD
                     b.ToTable("User");
 
-=======
->>>>>>> AddLogin
                     b.HasDiscriminator().HasValue("User");
                 });
 

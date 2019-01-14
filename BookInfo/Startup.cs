@@ -72,17 +72,10 @@ namespace BookInfo
             {
                 app.UseDeveloperExceptionPage();
             }
-<<<<<<< HEAD
             app.UseAuthentication();   // Must precede app.UseMvc!!!
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
             ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
-=======
-            app.UseAuthentication();     // This has to come before UseMvc...
-            app.UseMvcWithDefaultRoute();
-            app.UseStaticFiles();
-
->>>>>>> AddLogin
         }
     }
 }
