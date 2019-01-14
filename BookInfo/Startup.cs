@@ -68,16 +68,21 @@ namespace BookInfo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+<<<<<<< HEAD
             app.UseAuthentication();   // Must precede app.UseMvc!!!
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
             ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+=======
+            app.UseAuthentication();     // This has to come before UseMvc...
+            app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
+
+>>>>>>> AddLogin
         }
     }
 }

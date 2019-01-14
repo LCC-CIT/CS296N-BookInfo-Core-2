@@ -29,10 +29,14 @@ namespace BookInfo.Controllers
         
         
         [HttpPost]
+<<<<<<< HEAD
         [Authorize]
         public RedirectToActionResult Add(string name, DateTime date, int bookId)
+=======
+        public RedirectToActionResult Add(string name, DateTime bDay, int bookId)
+>>>>>>> AddLogin
         {
-            authorRepo.Add(new Author {Name = name, Birthday = date, BookID = bookId});
+            authorRepo.Add(new Author {Name = name, Birthday = bDay, BookID = bookId});
             return RedirectToAction("Index", "Book");
         }
 
@@ -43,9 +47,9 @@ namespace BookInfo.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Edit(String name, DateTime date, int authorid, int bookid)
+        public RedirectToActionResult Edit(String name, DateTime bDay, int authorid, int bookid)
         {
-            Author author = new Author { Name = name, Birthday = date, 
+            Author author = new Author { Name = name, Birthday = bDay, 
                 AuthorID = authorid, BookID = bookid }; 
 
             authorRepo.Edit(author);

@@ -1,12 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BookInfo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using BookInfo.Models;
 
 namespace BookInfo.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private UserManager<User> userManager;
