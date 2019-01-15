@@ -1,19 +1,9 @@
 # BookInfo ASP.NET Core MVC Web App
-<<<<<<< HEAD
-
-This web app was written to demonstrate key concepts in development of ASP.NET Core MVC 2.0 web apps using Visual Studio 2017.
-
-----
-=======
->>>>>>> AddLogin
 
 This web app was written to demonstrate key concepts in development of ASP.NET Core MVC 2.0 web apps using Visual Studio 2017.
 
 ----
 
-<<<<<<< HEAD
-This demo was written by [Brian Bird](https://birdsbits.blog) for CS296N, Web Development 2:ASP.NET, at Lane Community College.
-=======
 1. StartCode: Copied from [a .NET Core 1.1 project](https://github.com/LCC-CIT/CS296N-BookInfo-Core), updated for VS 2017. Already had basic models, controlelrs, views.
 1. AddEF: Added Repositories, Entity Framework, BookInfo2 database, SeedData, and unit tests.
 1. FKAuthorID: Added AuthorID to the Book model as a foreign key
@@ -28,4 +18,4 @@ This demo was written by [Brian Bird](https://birdsbits.blog) for CS296N, Web De
 ----
 
 This demo was written by [Brian Bird](https://birdsbits.blog) for CS296N, Web Development 2: ASP.NET, at Lane Community College.
->>>>>>> AddLogin
+
