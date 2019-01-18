@@ -1,5 +1,4 @@
-﻿using System;
-namespace BookInfo.Models
+﻿namespace BookInfo.Models
 {
     public class AccountViewModel
     {
