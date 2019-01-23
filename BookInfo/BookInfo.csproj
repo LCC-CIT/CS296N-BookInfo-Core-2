@@ -5,6 +5,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\" />
     <Folder Include="Views\Author\" />
+    <Folder Include="Views\Claims\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" />
@@ -12,5 +13,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Author\Page1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Claims\Index.cshtml" />
   </ItemGroup>
 </Project>
