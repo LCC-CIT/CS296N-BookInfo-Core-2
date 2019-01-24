@@ -17,7 +17,6 @@ namespace BookInfo.Controllers
         }
 
         /* Action Methods that get info from the database */
-
         [Authorize]
         public ViewResult Index()
         {
@@ -41,11 +40,10 @@ namespace BookInfo.Controllers
             return View(bookRepo.GetBookByTitle(title));
         }
         */
-
+        
         /* Action methods that modify the database */
-
-
-        [Authorize(Roles ="member")]
+        [Authorize(Roles = "Members")]
+        [HttpGet]
         public ViewResult Add()
         {
             return View();
@@ -59,6 +57,7 @@ namespace BookInfo.Controllers
             {
                 book.Authors.Add(new Author { Name = author, Birthday = DateTime.Parse(birthdate)});
             }
+
 
             bookRepo.AddBook(book);
 
