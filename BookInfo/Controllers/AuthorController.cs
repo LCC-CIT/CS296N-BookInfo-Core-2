@@ -18,7 +18,7 @@ namespace BookInfo.Controllers
         }
 
         /* Action methods */
-        
+        [Authorize]
         public ViewResult Index()
         {
             var authors = authorRepo.GetAllAuthors();

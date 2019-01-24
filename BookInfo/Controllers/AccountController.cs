@@ -17,7 +17,6 @@ namespace BookInfo.Controllers
             signInManager = signinMgr;
         }
  
-        [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
@@ -25,7 +24,6 @@ namespace BookInfo.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
@@ -56,6 +54,11 @@ namespace BookInfo.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }
