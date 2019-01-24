@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookInfo.Controllers
 {
-    [Authorize(Roles="Admins")]
+    // [Authorize(Roles="Admins")]
     public class AdminController : Controller
     {
         private UserManager<AppUser> userManager;
