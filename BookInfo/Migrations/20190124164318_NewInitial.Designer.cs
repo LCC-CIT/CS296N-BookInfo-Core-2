@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookInfo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190124163853_AppUserRename")]
-    partial class AppUserRename
+    [Migration("20190124164318_NewInitial")]
+    partial class NewInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -39,6 +39,7 @@ namespace BookInfo.Controllers
                             user, model.Password, false, false);
                     if (result.Succeeded)
                     {
+                        bool? test = User?.Identity?.IsAuthenticated;
                         return Redirect(returnUrl ?? "/");
                     }
                 }
