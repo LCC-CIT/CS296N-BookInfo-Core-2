@@ -17,7 +17,7 @@ namespace BookInfo.Controllers
         }
 
         /* Action Methods that get info from the database */
-        
+        [Authorize]
         public ViewResult Index()
         {
             var books = bookRepo.GetAllBooks();
