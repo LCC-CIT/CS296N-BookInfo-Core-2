@@ -39,7 +39,7 @@ namespace BookInfo
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookRepository, BookRepository>();
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
         }
@@ -54,6 +54,8 @@ namespace BookInfo
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
             app.UseAuthentication();
+            ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
+
         }
     }
 }
