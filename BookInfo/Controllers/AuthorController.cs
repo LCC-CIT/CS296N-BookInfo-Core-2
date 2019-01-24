@@ -24,9 +24,8 @@ namespace BookInfo.Controllers
         }
         
         
-
+        
         [HttpPost]
-        [Authorize]
         public RedirectToActionResult Add(string name, DateTime bDay, int bookId)
         {
             authorRepo.Add(new Author {Name = name, Birthday = bDay, BookID = bookId});
