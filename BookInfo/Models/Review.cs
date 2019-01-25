@@ -4,6 +4,6 @@
     {
         public int ReviewID { get; set; } // PK
         public string ReviewText { get; set; }
-        public User Member { get; set; }
+        public AppUser Member { get; set; }
     }
 }

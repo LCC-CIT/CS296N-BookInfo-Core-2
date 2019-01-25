@@ -11,11 +11,11 @@ namespace BookInfo.Controllers
 {
     public class AccountController : Controller
     {
-        private UserManager<User> userManager;
-        private SignInManager<User> signInManager;
+        private UserManager<AppUser> userManager;
+        private SignInManager<AppUser> signInManager;
 
-        public AccountController(UserManager<User> userMgr,
-        SignInManager<User> signinMgr)
+        public AccountController(UserManager<AppUser> userMgr,
+        SignInManager<AppUser> signinMgr)
         {
             userManager = userMgr;
             signInManager = signinMgr;
@@ -35,7 +35,7 @@ namespace BookInfo.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await userManager.FindByEmailAsync(details.Email);
+                AppUser user = await userManager.FindByEmailAsync(details.Email);
                 if (user != null)
                 {
                     await signInManager.SignOutAsync();

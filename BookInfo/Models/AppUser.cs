@@ -2,7 +2,7 @@
 
 namespace BookInfo.Models
 {
-    public class User : IdentityUser
+    public class AppUser : IdentityUser
     {
         // TODO: Find out why identity didn't add tables to the db
         // until I added UserID. I shouldn't need UserID

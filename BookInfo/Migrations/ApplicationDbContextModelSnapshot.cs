@@ -237,7 +237,7 @@ namespace BookInfo.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("BookInfo.Models.User", b =>
+            modelBuilder.Entity("BookInfo.Models.AppUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -247,9 +247,9 @@ namespace BookInfo.Migrations
 
                     b.Property<int>("UserID");
 
-                    b.ToTable("User");
+                    b.ToTable("AppUser");
 
-                    b.HasDiscriminator().HasValue("User");
+                    b.HasDiscriminator().HasValue("AppUser");
                 });
 
             modelBuilder.Entity("BookInfo.Models.Author", b =>
@@ -266,7 +266,7 @@ namespace BookInfo.Migrations
                         .WithMany("Reviews")
                         .HasForeignKey("BookID");
 
-                    b.HasOne("BookInfo.Models.User", "Member")
+                    b.HasOne("BookInfo.Models.AppUser", "Member")
                         .WithMany()
                         .HasForeignKey("MemberId");
                 });
