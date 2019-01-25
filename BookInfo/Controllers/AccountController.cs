@@ -29,7 +29,6 @@ namespace BookInfo.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 AppUser user = await userManager.FindByEmailAsync(model.Email);
 
                 if (user != null)

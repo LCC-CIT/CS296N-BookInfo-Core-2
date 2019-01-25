@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BookInfo.Repositories;
 using BookInfo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookInfo.Controllers
 {
