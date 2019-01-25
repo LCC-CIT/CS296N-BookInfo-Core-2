@@ -11,10 +11,10 @@ namespace BookInfo.Controllers
     [Authorize(Roles="Admins")]
     public class AdminController : Controller
     {
-        private UserManager<User> userManager;
+        private UserManager<AppUser> userManager;
         private RoleManager<IdentityRole> roleManager;
 
-        public AdminController(UserManager<User> um, RoleManager<IdentityRole> rm)
+        public AdminController(UserManager<AppUser> um, RoleManager<IdentityRole> rm)
         {
             userManager = um;
             roleManager = rm;
@@ -44,7 +44,7 @@ namespace BookInfo.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User
+                AppUser user = new AppUser
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
@@ -130,9 +130,9 @@ namespace BookInfo.Controllers
         public async Task<IActionResult> EditRole(string id)
         {
             IdentityRole role = await roleManager.FindByIdAsync(id);
-            List<User> members = new List<User>();
-            List<User> nonMembers = new List<User>();
-            foreach (User user in userManager.Users)
+            List<AppUser> members = new List<AppUser>();
+            List<AppUser> nonMembers = new List<AppUser>();
+            foreach (AppUser user in userManager.Users)
             {
                 var list = await userManager.IsInRoleAsync(user, role.Name)
                 ? members : nonMembers;
@@ -154,7 +154,7 @@ namespace BookInfo.Controllers
             {
                 foreach (string userId in model.IdsToAdd ?? new string[] { })
                 {
-                    User user = await userManager.FindByIdAsync(userId);
+                    AppUser user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.AddToRoleAsync(user,
@@ -168,7 +168,7 @@ namespace BookInfo.Controllers
 
                 foreach (string userId in model.IdsToDelete ?? new string[] { })
                 {
-                    User user = await userManager.FindByIdAsync(userId);
+                    AppUser user = await userManager.FindByIdAsync(userId);
                     if (user != null)
                     {
                         result = await userManager.RemoveFromRoleAsync(user,

@@ -19,8 +19,8 @@ namespace BookInfo.Models
 
         public static async Task CreateAdminAccount(IServiceProvider serviceProvider, IConfiguration configuration)
         {
-            UserManager<User> userManager =
-                serviceProvider.GetRequiredService<UserManager<User>>();
+            UserManager<AppUser> userManager =
+                serviceProvider.GetRequiredService<UserManager<AppUser>>();
             RoleManager<IdentityRole> roleManager =
                 serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             string username = configuration["Data:AdminUser:Name"];
@@ -33,7 +33,7 @@ namespace BookInfo.Models
                 {
                     await roleManager.CreateAsync(new IdentityRole(role));
                 }
-                User user = new User
+                AppUser user = new AppUser
                 {
                     UserName = username,
                     Email = email
