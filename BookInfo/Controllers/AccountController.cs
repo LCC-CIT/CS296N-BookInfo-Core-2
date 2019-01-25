@@ -8,16 +8,15 @@ namespace BookInfo.Controllers
 {
     public class AccountController : Controller
     {
-        private UserManager<User> userManager;
-        private SignInManager<User> signInManager;
+        private UserManager<AppUser> userManager;
+        private SignInManager<AppUser> signInManager;
 
-        public AccountController(UserManager<User> userMgr, SignInManager<User> signinMgr)
+        public AccountController(UserManager<AppUser> userMgr, SignInManager<AppUser> signinMgr)
         {
             userManager = userMgr;
             signInManager = signinMgr;
         }
  
-        [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
@@ -25,14 +24,13 @@ namespace BookInfo.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 
-                User user = await userManager.FindByEmailAsync(model.Email);
+                AppUser user = await userManager.FindByEmailAsync(model.Email);
 
                 if (user != null)
                 {
@@ -56,6 +54,11 @@ namespace BookInfo.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

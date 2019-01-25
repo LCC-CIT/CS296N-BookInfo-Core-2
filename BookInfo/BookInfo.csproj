@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\" />
     <Folder Include="Views\Author\" />
   </ItemGroup>
@@ -12,5 +13,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Author\Page1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Claims\Index.cshtml" />
   </ItemGroup>
 </Project>

@@ -9,10 +9,10 @@ namespace BookInfo.Infrastructure
     [HtmlTargetElement("td", Attributes = "identity-role")]
     public class RoleUsersTagHelper : TagHelper
     {
-        private UserManager<User> userManager;
+        private UserManager<AppUser> userManager;
         private RoleManager<IdentityRole> roleManager;
 
-        public RoleUsersTagHelper(UserManager<User> usermgr,
+        public RoleUsersTagHelper(UserManager<AppUser> usermgr,
         RoleManager<IdentityRole> rolemgr)
         {
             userManager = usermgr;

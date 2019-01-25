@@ -16,7 +16,8 @@ namespace BookInfo.Controllers
         }
 
         /* Action Methods that get info from the database */
-        
+
+        [Authorize]
         public ViewResult Index()
         {
             var books = bookRepo.GetAllBooks();
@@ -42,6 +43,7 @@ namespace BookInfo.Controllers
         
         /* Action methods that modify the database */
 
+        [Authorize(Roles = "Members")]
         [HttpGet]
         public ViewResult Add()
         {
