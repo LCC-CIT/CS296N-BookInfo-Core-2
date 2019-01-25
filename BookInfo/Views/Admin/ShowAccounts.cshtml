@@ -1,4 +1,4 @@
-﻿@model IEnumerable<User>
+﻿@model IEnumerable<AppUser>
 
 @{
     ViewData["Title"] = "Show All Accounts";
@@ -18,7 +18,7 @@
     }
     else
     {
-        foreach (User user in Model)
+        foreach (AppUser user in Model)
         {
             <tr>
                 <td>@user.Id</td>

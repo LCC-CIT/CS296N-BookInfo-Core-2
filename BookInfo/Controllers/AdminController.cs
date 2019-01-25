@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BookInfo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookInfo.Controllers
 {
-    public class AuthController : Controller
+    public class AdminController : Controller
     {
-        private UserManager<User> userManager;
+        private UserManager<AppUser> userManager;
 
-        public AuthController(UserManager<User> um)
+        public AdminController(UserManager<AppUser> um)
         {
             userManager = um;
         }
@@ -37,7 +34,7 @@ namespace BookInfo.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User
+                AppUser user = new AppUser
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
