@@ -27,13 +27,13 @@ namespace BookInfo
             {
                 services.AddDbContext<ApplicationDbContext>(
                     options => options.UseSqlServer(
-                        Configuration["Data:BookInfo:ConnectionString"]));
+                        Configuration["ConnectionStrings:LocalDbConnection"]));
             }
             else
             {
                 services.AddDbContext<ApplicationDbContext>(
                    options => options.UseSqlite(
-                       Configuration["Data:BookInfo:SQLiteConnectionString"]));
+                       Configuration["ConnectionStrings:SQLiteConnection"]));
             }
 
             services.AddTransient<IAuthorRepository, AuthorRepository>();
@@ -72,7 +72,7 @@ namespace BookInfo
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseAuthentication();   // Must precede app.UseMvc!!!
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
             ApplicationDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
