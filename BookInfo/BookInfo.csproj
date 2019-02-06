@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1.2</TargetFramework>
+    <UserSecretsId>bfda0ff1-3074-461a-bde3-33e61533b2fc</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />
@@ -13,8 +14,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Author\Page1.cshtml" />
+    <None Remove="x-appsettings.production.json-x" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Claims\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="x-appsettings.production.json-x" />
   </ItemGroup>
 </Project>
