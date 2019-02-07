@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using BookInfo.Repositories;
 using BookInfo.Models;
 using Microsoft.AspNetCore.Identity;
+using MySql.Data;
+using System;
 
 namespace BookInfo
 {
@@ -25,15 +27,42 @@ namespace BookInfo
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                services.AddDbContext<ApplicationDbContext>(
-                    options => options.UseSqlServer(
-                        Configuration["ConnectionStrings:MsSqlConnection"]));
+                // use My SQL or MS SQL depending on which connection string is provided
+                string connection = Configuration["ConnectionStrings:MsSqlConnection"];
+                if (connection != null)
+                {
+                    services.AddDbContext<ApplicationDbContext>(
+                        options => options.UseSqlServer(connection));
+                }
+                else   
+                {
+                    connection = Configuration["ConnectionStrings:MySqlConnection"];
+                    if (connection != null)
+                    {
+                        services.AddDbContext<ApplicationDbContext>(
+                        options => options.UseMySQL(connection));
+                    }
+                    else
+                    {
+                        throw new Exception("Connection string not found");
+                    }
+                }
             }
-            else
+            else if(RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 services.AddDbContext<ApplicationDbContext>(
                    options => options.UseSqlite(
                        Configuration["ConnectionStrings:SQLiteConnection"]));
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                services.AddDbContext<ApplicationDbContext>(
+                   options => options.UseMySQL(
+                       Configuration["ConnectionStrings:MySqlConnection"]));
+            }
+            else
+            {
+                throw new Exception("Operating system not recognized");
             }
 
             services.AddTransient<IAuthorRepository, AuthorRepository>();
