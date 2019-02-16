@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="h-100">
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -12,8 +12,8 @@
             <title>Book Info</title>
         }
 </head>
-<body>
-    <div class="container">
+<body class="h-100">
+    <div class="container d-flex flex-column h-100">
         <div class="text-center">
             <h1 class="text-center bg-light">Book Info</h1>
             <h1 class="badge badge-secondary">@ViewData["Title"]</h1>
@@ -26,5 +26,8 @@
             </p>
         }
     </div>
+    <footer class="mt-auto">
+        © 2019 by Brian Bird
+    </footer>
 </body>
 </html>
