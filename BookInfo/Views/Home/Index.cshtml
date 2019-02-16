@@ -21,12 +21,12 @@
 <div class="text-center">
     @if (User?.Identity?.IsAuthenticated ?? false)
     {
-        <a asp-controller="Account" asp-action="Logout"
+        <a asp-controller="Account" asp-action="Logout" asp-route-ReturnUrl="Home"
            class="btn btn-danger">Logout</a>
     }
     else
     {
-        <a asp-controller="Account" asp-action="Login"
+        <a asp-controller="Account" asp-action="Login" 
            class="btn btn-success">Login</a>
     }
 </div>
