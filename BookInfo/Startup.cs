@@ -27,7 +27,7 @@ namespace BookInfo
             {
                 services.AddDbContext<ApplicationDbContext>(
                     options => options.UseSqlServer(
-                        Configuration["ConnectionStrings:LocalDbConnection"]));
+                        Configuration["ConnectionStrings:MsSqlConnection"]));
             }
             else
             {
