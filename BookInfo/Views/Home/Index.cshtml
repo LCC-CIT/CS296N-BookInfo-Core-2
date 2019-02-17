@@ -23,10 +23,11 @@
     {
         <a asp-controller="Account" asp-action="Logout"
            class="btn btn-danger">Logout</a>
-    }
-    else
-    {
-        <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="/Home"
+            }
+            else
+            {
+                var currentPath = Context.Request.PathBase;
+        <a asp-controller="Account" asp-action="Login" asp-route-ReturnUrl="@currentPath"
            class="btn btn-success">Login</a>
     }
 </div>
