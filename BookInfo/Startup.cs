@@ -29,12 +29,18 @@ namespace BookInfo
                     options => options.UseSqlServer(
                         Configuration["ConnectionStrings:MsSqlConnection"]));
             }
-            else
+            else if(RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 services.AddDbContext<ApplicationDbContext>(
                    options => options.UseSqlite(
                        Configuration["ConnectionStrings:SQLiteConnection"]));
             }
+            else   // Assume Linux and MySQL or MariaDB
+			{
+				services.AddDbContext<ApplicationDbContext>(
+					options => options.UseMySql(
+						Configuration.GetConnectionString("MySqlConnection")));
+			}
 
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookRepository, BookRepository>();
