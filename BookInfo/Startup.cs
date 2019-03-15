@@ -14,9 +14,15 @@ namespace BookInfo
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration) 
-            => Configuration = configuration;
+        private IHostingEnvironment hostingEnvironment;
+
         public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        {
+            Configuration = configuration;
+            hostingEnvironment = env;
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
@@ -24,24 +30,30 @@ namespace BookInfo
         {
             services.AddMvc();
 
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            if (hostingEnvironment.IsEnvironment("Development_NoDB"))
+            {
+                services.AddDbContext<ApplicationDbContext>(
+                    options => options.UseInMemoryDatabase("TestDb"));
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 services.AddDbContext<ApplicationDbContext>(
                     options => options.UseSqlServer(
                         Configuration["ConnectionStrings:MsSqlConnection"]));
             }
-            else if(RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                services.AddDbContext<ApplicationDbContext>(
+                    options => options.UseMySql(
+                        Configuration.GetConnectionString("MySqlConnection")));
+            }
+            else  // Any other OS (including Mac OS)
             {
                 services.AddDbContext<ApplicationDbContext>(
                    options => options.UseSqlite(
                        Configuration["ConnectionStrings:SQLiteConnection"]));
             }
-            else   // Assume Linux and MySQL or MariaDB
-			{
-				services.AddDbContext<ApplicationDbContext>(
-					options => options.UseMySql(
-						Configuration.GetConnectionString("MySqlConnection")));
-			}
+			
 
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookRepository, BookRepository>();
