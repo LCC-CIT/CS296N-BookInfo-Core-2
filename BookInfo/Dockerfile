@@ -4,6 +4,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.2
 WORKDIR /app
 # set the environment variable for testing, remove this for production
 ENV ASPNETCORE_MEMDB True
+ENV ASPNETCORE_ENVIRONMENT Development
 
 # copy the project file into the image and restore dependencies
 COPY BookInfo.csproj ./
