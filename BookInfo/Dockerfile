@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.2
 # set the working directory for the Docker image
 WORKDIR /app
 # set the environment variable for testing, remove this for production
-ENV ASPNETCORE_ENVIRONMENT Development_NoDB
+ENV ASPNETCORE_MEMDB True
 
 # copy the project file into the image and restore dependencies
 COPY BookInfo.csproj ./

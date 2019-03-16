@@ -8,29 +8,29 @@ using Microsoft.Extensions.Configuration;
 using BookInfo.Repositories;
 using BookInfo.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
 
 
 namespace BookInfo
 {
     public class Startup
     {
-        private IHostingEnvironment hostingEnvironment;
-
+        // Property
         public IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        // Constructor
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            hostingEnvironment = env;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
+        // Called before the Configure mehtod
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
 
-            if (hostingEnvironment.IsEnvironment("Development_NoDB"))
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_MEMDB")?.ToLower() =="true")
             {
                 services.AddDbContext<ApplicationDbContext>(
                     options => options.UseInMemoryDatabase("TestDb"));
