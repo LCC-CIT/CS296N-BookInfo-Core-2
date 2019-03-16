@@ -1,5 +1,6 @@
 # BookInfo ASP.NET Core MVC Web App
-This web app was written to demonstrate key concepts in development of ASP.NET Core MVC web apps. The current version targets .NET Core 2.2.
+This web app demonstrates key concepts in the development of an ASP.NET Core MVC web app. The current version targets .NET Core 2.2 and was written using Visual Studio 2017. It includes connection strings for SQLite on Mac OS, SQL Server Local DB on Windows, and MariaDB on Linux in the later branches.
+
 Each of the following branches represents a development step:
 
 1. StartCode: Copied from [a .NET Core 1.1 project](https://github.com/LCC-CIT/CS296N-BookInfo-Core), updated for VS 2017. Already had basic models, controlelrs, views.
