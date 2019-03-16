@@ -11,8 +11,12 @@ Each of the following branches represents a development step:
 7. AddBootstrap: Bower configured for bootstrap and bootstrap styling added to app
 8. AddIdentity: Added Administrative features for user account management with Identity
 9. AddLogin: Added Login and logout
-1. UserRoles: Added user role management and authorization
+0. UserRoles: Added user role management and authorization
+1. Claims: Added claims based authorization
+2. SelfContainedDeployment: Added a publish profile for deployment
+3. JMeter: Added a JMeter script for load testing
+4. Docker: Added a Dockerfile for running in a Docker container
 
 ----
 
-This demo was written by [Brian Bird](https://birdsbits.blog) for CS296N, Web Development 2: ASP.NET, at Lane Community College.
+This demo was written by [Brian Bird](https://profbird.online) for [CS296N, Web Development 2: ASP.NET](http://lcc-cit.github.io/CS296N-CourseMaterials/), in the [Computer Information Technology Department](https://www.lanecc.edu/cit) at Lane Community College.
