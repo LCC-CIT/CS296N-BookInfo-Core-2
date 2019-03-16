@@ -10,6 +10,7 @@ The current version targets .NET Core 2.2 and was written using Visual Studio 20
 * Startup code for optional in-memory DB selected by an environment variable
 * Connection string for MariaDB
 * Other modifications to make the app containter friendly
+* More details are in my [lecture notes on Docker](http://lcc-cit.github.io/CS296N-CourseMaterials/LectureNotes/CS296N-LN-WK09D1-Docker.html)
 
 ----
 
