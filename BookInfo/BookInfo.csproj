@@ -21,7 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="wwwroot\" />
     <Folder Include="Views\Author\" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/BookInfo.css" />
+
         @if (((string)ViewData["Title"]) != "Home")
         {
             <title>@ViewData["Title"]</title>
@@ -13,7 +15,7 @@
         }
 </head>
 <body>
-    <div class="container">
+    <div class="container mb-5">
         <div class="text-center">
             <h1 class="text-center bg-light">Book Info</h1>
             <h1 class="badge badge-secondary">@ViewData["Title"]</h1>
@@ -22,9 +24,13 @@
         @if (((string)ViewData["Title"]) != "Home")
         {
             <p>
-            <a asp-controller="Home" asp-action="Index">Back to Home</a>
+                <a asp-controller="Home" asp-action="Index">Back to Home</a>
             </p>
         }
+
+        <footer class="bg-primary text-white text-center fixed-bottom">
+            © 2019 by Brian Bird
+        </footer>
     </div>
 </body>
 </html>
