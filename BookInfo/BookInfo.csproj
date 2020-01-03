@@ -3,18 +3,35 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Views\Claims\**" />
+    <Content Remove="Views\Claims\**" />
+    <EmbeddedResource Remove="Views\Claims\**" />
+    <None Remove="Views\Claims\**" />
+    <Content Remove="wwwroot\lib\bootstrap\js\tests\browsers.js" />
+    <Content Remove="wwwroot\lib\bootstrap\js\tests\integration\index.html" />
+    <Content Remove="wwwroot\lib\bootstrap\js\tests\integration\bundle.js" />
+    <Content Remove="wwwroot\lib\bootstrap\js\src\toast.js" />
+    <Content Remove="wwwroot\lib\bootstrap\js\tests\integration\rollup.bundle.js" />
+    <Content Remove="wwwroot\lib\bootstrap\js\tests\visual\toast.html" />
+    <Content Remove="wwwroot\lib\bootstrap\js\tests\unit\toast.js" />
+    <Content Remove="wwwroot\lib\bootstrap\scss\_toasts.scss" />
+    <Content Remove="wwwroot\lib\bootstrap\scss\_spinners.scss" />
+    <Content Remove="wwwroot\lib\bootstrap\scss\utilities\_shadows.scss" />
+    <Content Remove="wwwroot\lib\bootstrap\scss\utilities\_overflow.scss" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\" />
     <Folder Include="Views\Author\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" />
+    <PackageReference Include="Microsoft.AspNetCore.All">
+      <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+      <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+    </PackageReference>
     <PackageReference Include="Bower" Version="1.3.11" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Author\Page1.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Views\Claims\Index.cshtml" />
   </ItemGroup>
 </Project>
